@@ -14,6 +14,13 @@
     <main>
         <section id="input-form">
             <h2>AIコピーライティングを試す</h2>
+            <label for="target-audience">ターゲット層を選択:</label>
+<select id="target-audience">
+  <option value="trend">20代・トレンド重視</option>
+  <option value="practical">30-40代・実用性重視</option>
+  <option value="trust">50代以上・信頼重視</option>
+</select>
+
             <textarea id="product-description" placeholder="商品名と特徴を入力してください..."></textarea>
             <button onclick="generateCopy()">コピーを生成</button>
             <div id="loading-spinner" style="display: none;">生成中...</div>
