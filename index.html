@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-Desc | AIコピーライター</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🤖 Auto-Desc</h1>
+        <p>AIが商品の販売コピーを自動生成します。</p>
+    </header>
+    <main>
+        <section id="input-form">
+            <h2>AIコピーライティングを試す</h2>
+            <textarea id="product-description" placeholder="商品名と特徴を入力してください..."></textarea>
+            <button onclick="generateCopy()">コピーを生成</button>
+            <div id="loading-spinner" style="display: none;">生成中...</div>
+        </section>
+
+        <section id="output-copy">
+            <h2>生成結果</h2>
+            <p id="copy-result">ここに結果が表示されます。</p>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
