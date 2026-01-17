@@ -1,13 +1,18 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import os
 import openai
 
-app = Flask(__name__)
+# static_url_path='' と設定することで、HTMLファイルを直接読み込めるようにします
+app = Flask(__name__, static_url_path='', static_folder='.')
 CORS(app)
 
-# AIの鍵（APIキー）を環境から読み込む設定
 openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# URLにアクセスしたときに、自動で index.html を表示する設定
+@app.route('/')
+def index():
+    return send_from_directory('.', 'index.html')
 
 @app.route('/api/generate', methods=['POST'])
 def generate():
@@ -15,7 +20,6 @@ def generate():
     description = data.get('description')
     
     try:
-        # AIに「販売コピーを作って」と依頼する
         response = openai.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
